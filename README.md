@@ -1,6 +1,6 @@
 # Vue-vux项目基础模板
 
-> 请下载zip而不是直接拉取，直接拉取会关联git
+> 请下载zip而不是直接拉取，直接拉取会关联git。
 
 ## Build Setup
 
