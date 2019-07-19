@@ -28,7 +28,7 @@ Vue.prototype.$bus = new Vue()    // 主要用于绑定自定义事件及触发�
 require('./config/methods.js')  // 挂载实例方法
 require('./config/request.js')  // 挂载请求器
 
-FastClick.attach(document.getElementById('app-box'))
+FastClick.attach(document.getElementById('app'))
 
 Vue.config.productionTip = false
 
@@ -37,4 +37,4 @@ beforeInit(new Vue({
   router, store,
   beforeCreate, created, mounted,
   render: h => h(App)
-}).$mount('#app-box'))
+}).$mount('#app'))
