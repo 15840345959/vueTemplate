@@ -15,6 +15,21 @@ var axiosInstance = axios.create({
   baseURL: Vue._GLOBAL.api,
   ...commonConfig
 })
+
 axiosInstance.interceptors.request.use(requestDataHandler)
+axiosInstance.interceptors.response.use(responseDataHandler)
+
+// 请求拦截器
+function requestDataHandler(req){
+
+  return req
+}
+
+// 响应拦截器
+function responseDataHandler(res){
+
+  return res
+}
+
 
 window._request = axiosInstance

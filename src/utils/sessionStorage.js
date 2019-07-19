@@ -12,3 +12,4 @@ export default {
   remove (key) {
     sessionStorage.removeItem(key)
   }
+}
