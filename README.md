@@ -1,6 +1,6 @@
 # dstc_h5
 
-> A Vue.js project
+> Vue-vux项目基础模板
 
 ## Build Setup
 
