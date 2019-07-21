@@ -15,8 +15,16 @@ import beforeCreate from './config/beforeCreate'
 import created from './config/created'
 import mounted from './config/mounted'
 
-// 全局组件及插件
+import { 
+  ToastPlugin, AlertPlugin, ConfirmPlugin, LoadingPlugin, DatetimePlugin
+} from 'vux'
 
+// 全局组件及插件
+Vue.use(ToastPlugin, { type: 'text' })
+Vue.use(AlertPlugin, { title: '提示' })
+Vue.use(ConfirmPlugin, { title: '提示' })
+Vue.use(LoadingPlugin)
+Vue.use(DatetimePlugin)
 
 // 全局变量
 Vue._GLOBAL = globalVars          // 全局变量，这里的全局变量不应更改
@@ -33,7 +41,7 @@ FastClick.attach(document.getElementById('app'))
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
-beforeInit(new Vue({
+beforeInit(() => new Vue({
   router, store,
   beforeCreate, created, mounted,
   render: h => h(App)
