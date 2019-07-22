@@ -35,6 +35,8 @@ Vue.prototype.$bus = new Vue()    // 主要用于绑定自定义事件及触发�
 // 立即执行文件
 require('./config/methods.js')  // 挂载实例方法
 require('./config/request.js')  // 挂载请求器
+require('./config/filters.js')  // 注册全局过滤器
+require('./config/directives.js')  // 注册全局指令
 
 FastClick.attach(document.getElementById('app'))
 
