@@ -36,7 +36,7 @@ export default function(_this){
    * @param {string}         content 提示文字 
    * @param {string, object} options 可选，当类型为字符串时，为设置alert的标题，
    *  当为对象时表示配置参数 @see https://doc.vux.li/zh-CN/components/alert.html
-   * @returns {promise}      窗口关闭时，变为成功状态
+   * @return {promise}      窗口关闭时，变为成功状态
    */
   function alert(content, options){
     return new Promise(resolve => {
@@ -61,7 +61,7 @@ export default function(_this){
    *    ...
    * ]
    * 当类型为object时，将参数视为配置对象 @see https://doc.vux.li/zh-CN/components/actionsheet.html
-   * @returns {promise}     点击项时，变为成功状态，传入对应项的type值
+   * @return {promise}     点击项时，变为成功状态，传入对应项的type值
    *                        点击取消按钮时，变为失败状态，传入字符串 cancel
    *                        点击遮罩时，变为失败状态，传入字符串 mask
    */
