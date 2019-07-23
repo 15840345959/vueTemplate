@@ -12,7 +12,7 @@ var config = {
 
 
 var axiosInstance = axios.create({
-  baseURL: process.env.NODE_ENV === 'production' ? Vue._GLOBAL.api : '/api',
+  baseURL: Vue._GLOBAL.api,
   ...config
 })
 
