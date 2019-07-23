@@ -99,19 +99,6 @@ module.exports = vuxLoader.merge(webpackConfig, {
     {
       name: 'less-theme',
       path: 'src/styles/theme.less'
-    },
-
-    // 打包不输出console.log
-    new UglifyJsPlugin({
-      uglifyOptions: {
-        compress: {
-          warnings: false,
-          drop_debugger: true,
-          drop_console: true
-        }
-      },
-      sourceMap: config.build.productionSourceMap,
-      parallel: true
-    }),
+    }
   ]
 })

@@ -49,23 +49,6 @@ export default {
 
   mounted (){
     mountVuxAlerts(this)
-    this.$alert.actionSheet({
-      menus: [
-        {
-          label: 'aaa',
-          value: 'aaa'
-        }, 
-        {
-          label: 'aaa',
-          value: 'aaa'
-        }, 
-        {
-          label: 'aaa',
-          value: 'aaa'
-        }, 
-      ]
-    }).then(val => console.log(val))
-    .catch(e => console.log(e))
   }
 }
 </script>

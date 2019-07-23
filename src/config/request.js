@@ -2,8 +2,7 @@
 import axios from 'axios'
 import qs from 'qs'
 
-
-var commonConfig = {
+var config = {
   timeout: 7000,
   headers: {
     'Content-Type': 'application/x-www-form-urlencoded'
@@ -11,9 +10,10 @@ var commonConfig = {
   transformRequest: qs.stringify
 }
 
+
 var axiosInstance = axios.create({
-  baseURL: Vue._GLOBAL.api,
-  ...commonConfig
+  baseURL: process.env.NODE_ENV === 'production' ? Vue._GLOBAL.api : '/api',
+  ...config
 })
 
 axiosInstance.interceptors.request.use(requestDataHandler)
