@@ -6,10 +6,6 @@ import Index from '@v/Index'
 
 Vue.use(Router)
 
-const r = {
-  // 路由树
-}
-
 const keepAlive = true,
 fromUrlStop = true
 
