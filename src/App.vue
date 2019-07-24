@@ -48,7 +48,9 @@ export default {
   },
 
   mounted (){
+    // 挂载通知方法
     mountVuxAlerts(this)
+    window._alert = this.$alert
   }
 }
 </script>
