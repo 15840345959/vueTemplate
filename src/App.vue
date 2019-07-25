@@ -13,6 +13,12 @@
       @on-click-mask="actionSheet.onMask"
     ></x-actionsheet>
 
+    <!-- vux没有单独的下popup-picker，这个会自带一个cell，只好手动隐藏(定位定走) -->
+    <popup-picker v-model="pickerVal" title="_" :data="pickerData" class="hidePicker" ref="picker"
+      :columns="1"
+      @on-hide="pickerHide"
+    ></popup-picker>
+
     <!-- loading提示 -->
     <transition name="fade">
       <x-spinner class="com-ab-center" v-show="visibleSpinner" :type="spinnerType"></x-spinner>
@@ -41,6 +47,10 @@ export default {
       },
 
       visibleMask: false,
+
+      pickerVal: [],
+      pickerData: [],
+      pickerHide: new Function(),
 
       visibleSpinner: false,
       spinnerType: 'crescent',

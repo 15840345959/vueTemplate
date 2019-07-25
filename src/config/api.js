@@ -1,15 +1,16 @@
 function request({
   url,
   method = 'get',
-  params = {},   
+  apiParams = {},   
   loading = false, 
-  msg = true
+  msg = false
 }){
   return {
     [url] (params){
       var {_alert = null} = window
       return new Promise((resolve, reject) =>{
         loading && _alert && _alert.loading.show(loading)
+        params = { ...apiParams, ...params }
         _request({
           url, method,
           ...({ [method === 'get' ? 'params' : 'data']: params }),
@@ -22,7 +23,7 @@ function request({
           }
         }).catch(e =>{
           console.log(e)
-          msg && _alert && _alert.toast('网络错误', 'cancel')
+          msg && _alert && _alert.toast(typeof msg == 'string' ? msg : '网络错误', 'cancel')
           reject()
         })
       })
