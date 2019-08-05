@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import set from './set'
+
+import saveScroll from './saveScroll'
 
 Vue.use(Vuex)
 
@@ -10,7 +11,7 @@ export default new Vuex.Store({
   },
 
   mutations: {
-    set
+    
   },
 
   getters: {
@@ -18,6 +19,6 @@ export default new Vuex.Store({
   },
 
   modules: {
-  
+    saveScroll
   }
 })

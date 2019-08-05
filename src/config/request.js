@@ -5,11 +5,11 @@ import qs from 'qs'
 var config = {
   timeout: 7000,
   headers: {
-    'Content-Type': 'application/x-www-form-urlencoded'
+    'Content-Type': 'application/x-www-form-urlencoded',
   },
+
   transformRequest: qs.stringify
 }
-
 
 var axiosInstance = axios.create({
   baseURL: Vue._GLOBAL.api,
@@ -28,7 +28,7 @@ function requestDataHandler(req){
 // 响应拦截器
 function responseDataHandler(res){
 
-  return res
+  return res.data
 }
 
 

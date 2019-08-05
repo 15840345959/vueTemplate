@@ -16,7 +16,7 @@
 }
 
 .flex-vertical-center{
-  justify-items: center;
+  align-items: center;
 }
 
 .flex-horizontal-center{
@@ -31,8 +31,16 @@
   justify-content: space-between;
 }
 
-.flex-scroll{
-  overflow: auto;
+.flex-children-center{
+  align-content: center;
+}
+
+.flex-children-around{
+  align-content: space-around;
+}
+
+.flex-children-between{
+  align-content: space-between;
 }
 
 .flex-grow{
@@ -45,4 +53,35 @@
 
 .flex-grow-3{
   flex: 3;
+}
+
+.flex-grow-limit{
+  flex: 1;
+  overflow: hidden;
+}
+
+.flex-grow-2-limit{
+  flex: 2;
+  overflow: hidden;
+}
+
+.flex-grow-3-limit{
+  flex: 3;
+  overflow: hidden;
+}
+
+.flex-shrink{
+  flex-shrink: 1;
+}
+
+.flex-oneline{
+  flex-basis: 100%;
+}
+
+.flex-wrap{
+  flex-wrap: wrap;
+}
+
+.flex-scroll{
+  overflow: auto;
 }

@@ -1,39 +1,46 @@
 <template>
-  <div>
+  <div style="height:100%; overflow:auto;">
     <keep-alive>
       <router-view v-if="$route.meta.keepAlive"></router-view>
     </keep-alive>
     <router-view v-if="!$route.meta.keepAlive"></router-view>
 
     <!-- actionsheet全局方法组件 -->
-    <x-actionsheet v-model="visibleActionSheet"
+    <actionsheet v-model="visibleActionSheet"
       v-bind="actionSheet.options"
       @on-click-menu="actionSheet.onClick"
       @on-click-menu-cancel="actionSheet.onCancel"
       @on-click-mask="actionSheet.onMask"
-    ></x-actionsheet>
+    ></actionsheet>
 
-    <!-- vux没有单独的下popup-picker，这个会自带一个cell，只好手动隐藏(定位定走) -->
+    <!-- vux没有单独的下popup-picker，这个会自带一个cell栏，只好手动隐藏(定位定走) -->
     <popup-picker v-model="pickerVal" title="_" :data="pickerData" class="hidePicker" ref="picker"
       :columns="1"
       @on-hide="pickerHide"
     ></popup-picker>
 
+    <!-- 遮罩层 -->
+    <transition name="fade">
+      <div class="com-mask" v-show="visibleMask" @click="hideMask"></div>
+    </transition>
+
     <!-- loading提示 -->
     <transition name="fade">
-      <x-spinner class="com-ab-center" v-show="visibleSpinner" :type="spinnerType"></x-spinner>
+      <spinner class="com-ab-center" v-show="visibleSpinner" :type="spinnerType"></spinner>
     </transition>
   </div>
 </template>
 
 <script>
-import { Toast, Actionsheet, Spinner } from 'vux'
-import mountVuxAlerts from './vuxAlerts.js'
+import { Toast, Actionsheet, Spinner, PopupPicker } from 'vux'
+import mountVuxAlerts from './config/vuxAlerts.js'
+import mountApis from './config/api.js'
 
 export default {
   components: {
-    XActionsheet: Actionsheet,
-    XSpinner: Spinner,
+    Actionsheet,
+    Spinner,
+    PopupPicker,
   },
 
   data (){
@@ -46,11 +53,20 @@ export default {
         onMask: new Function()
       },
 
-      visibleMask: false,
-
       pickerVal: [],
       pickerData: [],
       pickerHide: new Function(),
+
+      confirm: {
+        title: '',
+        content: '',
+        cancel: new Function(),
+        check: new Function(),
+        visible: false
+      },
+
+      visibleMask: false,
+      hideMask: new Function(),
 
       visibleSpinner: false,
       spinnerType: 'crescent',
@@ -69,4 +85,8 @@ export default {
 @import '~vux/src/styles/reset.less';
 @import '~@/styles/main.less';
 
+.hidePicker{
+  position: fixed !important;
+  left: -9999px;
+}
 </style>

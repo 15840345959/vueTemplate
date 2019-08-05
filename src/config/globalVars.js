@@ -2,5 +2,6 @@
 const productionApi = ''
 
 export default {
-  api: process.env.NODE_ENV === 'production' ? productionApi : '/api'
+  api: process.env.NODE_ENV === 'production' ? productionApi : '/api',
+  qiniuPic: ''
 }

@@ -81,6 +81,20 @@ export default function(_this){
     })
   }
   
+  var loading = {
+  /**
+   * 显示loading，带mask
+   * @param {string} text 显示文本 
+   */  
+
+   show (text){
+    typeof text === 'string' ? _this.$vux.loading.show({ text }) : _this.$vux.loading.show()
+   },
+
+   hide (){
+     _this.$vux.loading.hide()
+   }
+  }
 
   var spinner = {
     /**
@@ -105,17 +119,61 @@ export default function(_this){
    * @author 张振东
    * @param {array}    data       列表数据，成员为对象{ name: 显示文字, value: 对应值 } ，多列参考vux文档
    * @param {any}      defaultVal 默认值，
-   * @return {promise} 用户点击确认时触发resolve，传回选中的值(数组)，其他方式关闭选择栏时触发reject
+   * @return {promise} 用户点击确认时触发resolve，传回选中的值，其他方式关闭选择栏时触发reject
    */
   function picker(data, defaultVal){
     return new Promise((resolve, reject) =>{
       _this.pickerVal = []
       typeof defaultVal !== 'undefined' && _this.pickerVal.push(defaultVal)
       _this.pickerData = data
-      _this.pickerHide = result => result ? resolve(_this.pickerVal) : reject()
+      _this.pickerHide = result => result ? resolve(_this.pickerVal[0]) : reject()
       _this.$refs.picker.$el.querySelector('.weui-label').click()
     })
   }
 
-  Vue.prototype.$alert = { toast, alert, actionSheet, spinner }
+  /**
+   * 项目风格的confirm
+   * @author 张振东
+   * @param {string} title   标题
+   * @param {string} content 内容
+   * @return {promise} 用户点击确定触发resolve，点击取消触发reject
+   */
+  function myConfirm(title, content){
+    return new Promise((resolve, reject) =>{
+      _this.confirm = {
+        title, content,
+        visible: true,
+        check: () =>{
+          _this.confirm.visible = false
+          resolve()
+        },
+        
+        cancel: () =>{
+          _this.confirm.visible = false
+          reject()
+        },
+      }
+    })
+  }
+
+  var mask = {
+    /**
+     * 开启遮罩，点击遮罩自动关闭。可以传入一个函数，当点击遮罩时触发
+     * @author 张振东
+     * @param {function} hideMethod 可选，点击遮罩时执行的函数
+     */
+    show (hideMethod){
+      _this.visibleMask = true
+      _this.hideMask = () =>{
+        hideMethod && hideMethod()
+        _this.visibleMask = false
+      }
+    },
+
+    hide (){
+      _this.hideMask()
+    },
+  }
+
+  Vue.prototype.$alert = { toast, alert, actionSheet, loading, spinner, picker, myConfirm, mask }
 }
