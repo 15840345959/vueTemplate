@@ -1,9 +1,9 @@
-// 全局变量
+// 全局变量和可混入类
 
 @theme: #FFB100;
 @success: rgb(103, 248, 135);
-@danger: red;
-
+@danger: #FF2841;
+@info: #0094FF;
 @subtext: #A9A9A9;
 
 // 全局类
@@ -11,11 +11,43 @@
 .color-theme{
   color: @theme;
 }
+.color-success{
+  color: @success;
+}
+.color-danger{
+  color: @danger;
+}
+.color-info{
+  color: @info;
+}
+.color-subtext{
+  color: @subtext;
+}
 
 .color-theme-bg{
   background-color: @theme;
 }
-
+.color-success-bg{
+  background-color: @success;
+}
 .color-danger-bg{
   background-color: @danger;
+}
+.color-info-bg{
+  background-color: @info;
+}
+.color-subtext-bg{
+  background-color: @subtext;
+}
+
+.theme-btn{
+  background-color: @theme;
+  color: white;
+}
+
+// 文字超出省略号
+.text-limit{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

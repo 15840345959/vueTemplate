@@ -27,11 +27,12 @@ var routes = [
     name: 'index',
     component: Index,
     meta: { keepAlive }
-  }, {
-    ...p('foo/bar/baz'),
-    component: Component,
-    meta: { keepAlive, fromUrlStop }
-  }
+  }, 
+  // {
+  //   ...p('foo/bar/baz'),
+  //   component: Component,
+  //   meta: { keepAlive, fromUrlStop }
+  // }
 ]
 
 // guard为路由实例添加全局守卫
