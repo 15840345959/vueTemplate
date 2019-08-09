@@ -12,7 +12,8 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api': {
-        target: '', 
+        // 这里填写开发环境api地址
+        target: 'http://dedstc.isart.me/api', 
         changeOrigin: true,
         pathRewrite: {
           '^/api': ''

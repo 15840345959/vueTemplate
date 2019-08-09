@@ -13,7 +13,6 @@ import globalVars from './config/globalVars'
 import beforeInit from './config/beforeInit'
 import beforeCreate from './config/beforeCreate'
 import created from './config/created'
-import mounted from './config/mounted'
 
 import { 
   ToastPlugin, AlertPlugin, ConfirmPlugin, LoadingPlugin, DatetimePlugin
@@ -46,6 +45,6 @@ Vue.config.productionTip = false
 /* eslint-disable no-new */
 beforeInit(() => new Vue({
   router, store,
-  beforeCreate, created, mounted,
+  beforeCreate, created,
   render: h => h(App)
 }).$mount('#app'))

@@ -35,6 +35,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false,
+        // 将下面这两行注释掉，会在打包好的项目中输出log
         drop_debugger: true,
         drop_console: true
       },

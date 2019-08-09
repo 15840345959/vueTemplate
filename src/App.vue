@@ -23,11 +23,6 @@
     <transition name="fade">
       <div class="com-mask" v-show="visibleMask" @click="hideMask"></div>
     </transition>
-
-    <!-- loading提示 -->
-    <transition name="fade">
-      <spinner class="com-ab-center" v-show="visibleSpinner" :type="spinnerType"></spinner>
-    </transition>
   </div>
 </template>
 
@@ -35,6 +30,7 @@
 import { Toast, Actionsheet, Spinner, PopupPicker } from 'vux'
 import mountVuxAlerts from './config/vuxAlerts.js'
 import mountApis from './config/api.js'
+import alertMounted from './config/alertMounted.js'
 
 export default {
   components: {
@@ -77,6 +73,9 @@ export default {
     // 挂载通知方法
     mountVuxAlerts(this)
     window._alert = this.$alert
+
+   // 弹窗通知方法挂载完毕(api management也已经挂载完毕)
+    alertMounted(this)
   }
 }
 </script>

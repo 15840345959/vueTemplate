@@ -25,6 +25,7 @@ let webpackConfig = {
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
+      // 路径别名
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
       '@c': resolve('src/components'),
