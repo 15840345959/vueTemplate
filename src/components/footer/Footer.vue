@@ -50,23 +50,18 @@ export default {
   data (){
     return {
       selected: this.value,
-      items: ['/', 'index/finds', 'index/publish', 'index/messages', 'index/my'],
+      items: ['/', 'index/page1', 'index/page2', 'index/page3', 'index/page4'],
       unreadMsgCount: 0
     }
   },
 
   mounted (){
     this.checkRoute()
-    this.getUnreadMessagesCount()
   },
 
   watch: {
     $route (route){
       this.checkRoute()
-
-      if(route.name === 'index/messages'){
-        this.getUnreadMessagesCount()
-      }
     }
   },
 
@@ -81,11 +76,6 @@ export default {
       this.$toView(this.items[index])
       this.$emit('input', index)
     },
-
-    getUnreadMessagesCount (){
-      _api('message/getListByCon', { is_read: 0 })
-      .then(data => this.unreadMsgCount = data.total)
-    }
   }
 }
 </script>

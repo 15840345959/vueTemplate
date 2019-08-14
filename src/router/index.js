@@ -26,13 +26,27 @@ var routes = [
     path: '/',
     name: 'index',
     component: Index,
-    meta: { keepAlive }
-  }, 
-  // {
-  //   ...p('foo/bar/baz'),
-  //   component: Component,
-  //   meta: { keepAlive, fromUrlStop }
-  // }
+    meta: { keepAlive },
+
+    children: [
+      {
+        ...p('/'),
+        component: () => import('@v/example/Home'),
+      }, {
+        ...p('index/page1'),
+        component: () => import('@v/example/Page1')
+      }, {
+        ...p('index/page2'),
+        component: () => import('@v/example/Page2')
+      }, {
+        ...p('index/page3'),
+        component: () => import('@v/example/Page3')
+      }, {
+        ...p('index/page4'),
+        component: () => import('@v/example/Page4')
+      }
+    ]
+  },
 ]
 
 // guard为路由实例添加全局守卫

@@ -6,7 +6,8 @@ export default function(_this){   // 该_this为App.vue的页面实例(相当于
    * @author 张振东
    * @param {string} text 显示的文字
    * @param {string} type 可选，显示的类型或位置，取值范围：类型见下方types和positions。
-   *  type默认为text，当type设置为"success, warn, cancel"中的任意一值时，将展示图标，此时建议文字长度不超过5个全角字符
+   *  type默认为text，当type设置为"success, warn, cancel"中的任意一值时，将展示对应图标，下方显示文字，
+   *  此时建议文字长度不超过5个全角字符
    *  position默认为default，位于屏幕的中上部
    * 
    * @param {string} width 可选，toast栏宽度，默认为根据宽度自动撑开，
