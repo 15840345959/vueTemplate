@@ -35,7 +35,7 @@ if(process.env.NODE_ENV === 'development'){
  * @param {object} options 配置对象，以下为配置对象的各字段。 ** 一般不需要直接使用该函数 **
  * name       {string} 调用该接口的方法名
  * url        {string} 接口路径，不包括base路径
- * method     {string} 方式，get or post
+ * method     {string} 方式，get or post，默认get
  * apiParams  {object} 传入一个对象，为调用该接口时的默认参数，当使用时传入的参数与默认参数冲突时，默认参数将被覆盖
  * loading    {bool, string} 调用接口时启用loading提示，默认为false，当传入一个字符串时，将在转圈下显示该文字
  * msg        {bool, string} 出现错误时(接口返回result字段为false，或网络超时)，弹出提示
