@@ -16,6 +16,10 @@ var submit = (name, url, apiParams) => ({ name, url, apiParams, method: 'post', 
   
 ].forEach(add)
 
+if(process.env.NODE_ENV === 'development'){
+  
+}
+
 
 /**
  * 添加api方法，方便统一管理，挂载于window._api
