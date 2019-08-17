@@ -28,7 +28,7 @@
 ``` bash
 > beforeCreate、created：vue原生钩子
 
-> beforeInit：自定义钩子，在创建vue根实例之前执行，注意：这里完全无法访问到当前vue，因为还没有创建
+> beforeInit：自定义钩子，在创建vue根实例之前执行，注意：这里完全无法访问到当前vue实例，因为还没有创建
 
 > alertMounted：自定义钩子，在自定义通知方法(this.$alert)绑定后执行，此时 window._api 也已经绑定完成
 
