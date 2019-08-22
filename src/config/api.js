@@ -1,19 +1,25 @@
 var requests = {}
 
 // 声明三个方法，方便统一管理文字或其他配置
+
+// 基本，只设置name和url，第三个参数可以传入一个对象，传入配置
 var plain = (name, url, config) => ({ name, url, ...config })
+
+// 载入数据
 var load = (name, url, apiParams) => ({ name, url, apiParams, loading: '加载中', msg: true })
+
+// 提交数据
 var submit = (name, url, apiParams) => ({ name, url, apiParams, method: 'post', loading: '提交中', msg: true })
 
 
 var config = [
-  // 获取首页数据
-  load('getIndexData', 'index/home'),
+  // { name: 'getIndexData', url: 'index/home' },
 
-  // 获取轮播图
-  plain('getCarouselImgs', 'ad/getListByCon'),
+  // 这句和上面注释的那一句是等价的
+  plain('getIndexData', 'index/home'),
 
-  // 发布二手车
+  load('getCarouselImgs', 'ad/getListByCon'),
+
   submit('publishUsedCar', 'usedCar/publish'),
   
 ]
