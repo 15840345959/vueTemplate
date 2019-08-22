@@ -31,8 +31,7 @@ let webpackConfig = {
       '@c': resolve('src/components'),
       '@v': resolve('src/views'),
       '@u': resolve('src/utils'),
-      '@img': resolve('src/assets/images'),
-      '@sty': resolve('src/styles/page')
+      '@img': resolve('src/assets/images')
     }
   },
   module: {

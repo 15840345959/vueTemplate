@@ -6,8 +6,7 @@
       "@c/*": ["components/*"],
       "@v/*": ["views/*"],
       "@u/*": ["utils/*"],
-      "@img/*": ["assets/images/*"],
-      "@sty/*": ["styles/view/*"]
+      "@img/*": ["assets/images/*"]
     },
     "target": "es5",
     "module": "commonjs",

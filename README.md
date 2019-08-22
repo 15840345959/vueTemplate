@@ -20,7 +20,7 @@
 以下目录均在src文件夹下。
 
 * __assets__ 用于存放一些图标的小图片，该文件夹中所有资源会被打包，图片被转换为base64，如果图片过大会显著增加打包时间
-* __components__ 存放组件，以功能或组件类型来分类
+* __components__ 只存放共用组件，以功能或组件类型来分类
 * __config__ 包含vue原生钩子和一些自定义钩子，以及一些其他项目全局都要用到的文件。以下是每个文件的作用
 
 ``` bash
@@ -71,6 +71,39 @@
 * __views__ 页面，其中的common文件中存放了一些常用页面，这些页面一般以子路由形式使用
 * __static__ 静态内容，不会被打包。一般存放一些未遵守模块化规范的js库，或较大的图片文件
 
+## 关于目录安排
 
+引用组件、共用样式、工具函数等一律使用别名。以下是默认的别名列表：
+
+* @: src
+* @c: src/components
+* @v: src/views
+* @u: src/utils
+* @img: src/assets/images
+
+
+如果某些样式表和组件，只在某一模块内使用，则将其放在对应文件夹下，按类型放在不同文件夹中。
+
+例如有如下几个文件：
+
+``` bash
+login
+  > style.less 登录模块的共用样式
+  > TextInput.vue 输入栏
+  > Login.vue 登录
+  > Register.vue 注册
+```
+
+则应这样安排目录结构：
+
+``` bash
+login
+  > styles
+    > style.less
+  > components
+    > TextInput.vue
+  > Login.vue
+  > Register.vue
+```
 
 
