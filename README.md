@@ -23,8 +23,6 @@
 * __components__ 存放组件，以功能或组件类型来分类
 * __config__ 包含vue原生钩子和一些自定义钩子，以及一些其他项目全局都要用到的文件。以下是每个文件的作用
 
-&emsp;
-
 ``` bash
 > beforeCreate、created：vue原生钩子
 

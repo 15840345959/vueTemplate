@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "@/*": ["*"],
+      "@c/*": ["components/*"],
+      "@v/*": ["views/*"],
+      "@u/*": ["utils/*"],
+      "@img/*": ["assets/images/*"],
+      "@sty/*": ["styles/view/*"]
+    },
+    "target": "es5",
+    "module": "commonjs",
+    "allowSyntheticDefaultImports": true,
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}
