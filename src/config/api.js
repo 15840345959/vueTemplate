@@ -1,15 +1,17 @@
 var requests = {}
 
-// 声明两个方法，方便统一管理文字或其他配置
+// 声明三个方法，方便统一管理文字或其他配置
+var plain = (name, url, config) => ({ name, url, ...config })
 var load = (name, url, apiParams) => ({ name, url, apiParams, loading: '加载中', msg: true })
 var submit = (name, url, apiParams) => ({ name, url, apiParams, method: 'post', loading: '提交中', msg: true })
+
 
 var config = [
   // 获取首页数据
   load('getIndexData', 'index/home'),
 
   // 获取轮播图
-  { name: 'getCarouselImgs', url: 'ad/getListByCon' },
+  plain('getCarouselImgs', 'ad/getListByCon'),
 
   // 发布二手车
   submit('publishUsedCar', 'usedCar/publish'),
