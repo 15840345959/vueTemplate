@@ -1,5 +1,6 @@
 import Vue from 'vue'
 
+// 下列所有方法也挂载于window._alert，可以在浏览器控制台中直接测试
 export default function(_this){   // 该_this为App.vue的页面实例(相当于App.vue页面的this)
   /**
    * 显示toast
