@@ -12,7 +12,7 @@ var config = {
 }
 
 var axiosInstance = axios.create({
-  baseURL: Vue._GLOBAL.api,
+  baseURL: _GLOBAL.api,
   ...config
 })
 

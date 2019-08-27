@@ -13,6 +13,7 @@ import globalVars from './config/globalVars'
 import beforeInit from './config/beforeInit'
 import beforeCreate from './config/beforeCreate'
 import created from './config/created'
+import themeColors from './styles/global.less'
 
 import { 
   ToastPlugin, AlertPlugin, ConfirmPlugin, LoadingPlugin, DatetimePlugin
@@ -26,10 +27,10 @@ Vue.use(LoadingPlugin)
 Vue.use(DatetimePlugin)
 
 // 全局变量
-Vue._GLOBAL = globalVars          // 全局变量，这里的全局变量不应更改
-window.Vue = Vue
-window._GLOBAL = {}               // 全局变量，可以进行更改
+window._GLOBAL = globalVars       // 全局变量，这里的全局变量不应更改
+window._global = {}               // 全局变量，可以进行更改
 Vue.prototype.$bus = new Vue()    // 主要用于绑定自定义事件及触发相应事件
+Vue.prototype.$colors = themeColors // 主题色，这是一个对象，包含了在styles/global.less中导出的颜色值
 
 // 立即执行文件
 require('./config/methods.js')  // 挂载实例方法

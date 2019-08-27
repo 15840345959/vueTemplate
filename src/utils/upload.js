@@ -14,7 +14,7 @@ export default function(file){
       var key = 'image/' + new Date().getTime() + file.name 
       var obs = qiniu.upload(file, key, token)
       var cb = {
-        complete: ({key}) => resolve(Vue._GLOBAL.qiniuPic + key),
+        complete: ({key}) => resolve(_GLOBAL.qiniuPic + key),
         error: reject
       }
       obs.subscribe(cb)
