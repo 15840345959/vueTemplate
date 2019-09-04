@@ -1,7 +1,6 @@
 <template>
-  <div class="flex">
-    <router-view></router-view>
-    <vue-footer></vue-footer>
+  <div>
+    hello world
   </div>
 </template>
 
