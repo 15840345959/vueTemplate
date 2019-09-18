@@ -6,14 +6,7 @@
 
 ## 配置
 
-* [开发环境API地址 16行](config/index.js)
-
-* [生产环境API地址 4行](src/config/globalVars.js)
-
-* [文件夹路径别名 28行](build/webpack.base.conf.js)
-
-* [打包后是否屏蔽console.log 38行](build/webpack.prod.conf.js)
-
+请查看：./my-config.js
 
 ## 目录结构
 

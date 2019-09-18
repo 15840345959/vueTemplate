@@ -4,6 +4,8 @@
 
 const path = require('path')
 
+const {devApi} = require('../my-config')
+
 module.exports = {
   dev: {
 
@@ -13,7 +15,7 @@ module.exports = {
     proxyTable: {
       '/api': {
         // 这里填写开发环境api地址
-        target: 'http://dedstc.isart.me/api', 
+        target: devApi, 
         changeOrigin: true,
         pathRewrite: {
           '^/api': ''

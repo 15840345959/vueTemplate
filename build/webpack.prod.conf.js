@@ -10,7 +10,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 
+
 const env = require('../config/prod.env')
+
+const openDropConsole = require('../my-config').dropConsole
 
 const webpackConfig = merge(baseWebpackConfig, {
   module: {
@@ -36,8 +39,8 @@ const webpackConfig = merge(baseWebpackConfig, {
       compress: {
         warnings: false,
         // 将下面这两行注释掉，会在打包好的项目中输出log
-        drop_debugger: true,
-        drop_console: true
+        drop_debugger: openDropConsole,
+        drop_console: openDropConsole
       },
       sourceMap: config.build.productionSourceMap,
       parallel: true

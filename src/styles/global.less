@@ -1,7 +1,7 @@
 // 全局变量和可混入类
 
 // 全局变量
-@theme: #FFB100;
+@main: #FFB100;
 @success: rgb(103, 248, 135);
 @danger: #FF2841;
 @info: #0094FF;
@@ -9,7 +9,7 @@
 
 // 导出对象，可以在js文件中引入。导出的颜色对象已经挂在了Vue.prototype.$colors上
 :export {
-  theme: @theme;
+  main: @main;
   success: @success;
   danger: @danger;
   info: @info;
@@ -18,8 +18,8 @@
 
 // 全局类
 
-.color-theme{
-  color: @theme;
+.color-main{
+  color: @main;
 }
 .color-success{
   color: @success;
@@ -34,8 +34,8 @@
   color: @subtext;
 }
 
-.color-theme-bg{
-  background-color: @theme;
+.color-main-bg{
+  background-color: @main;
 }
 .color-success-bg{
   background-color: @success;
@@ -50,8 +50,8 @@
   background-color: @subtext;
 }
 
-.theme-btn{
-  background-color: @theme;
+.main-btn{
+  background-color: @main;
   color: white;
 }
 

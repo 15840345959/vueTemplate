@@ -5,11 +5,8 @@
 </template>
 
 <script>
-import VueFooter from '@c/footer/Footer'
+import img from '@c/ScrollView.vue'
 export default {
-  components: {
-    VueFooter
-  },
 
   data (){
     return {

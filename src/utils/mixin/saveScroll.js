@@ -1,7 +1,7 @@
 export default {
   // 进入时读取进度条数据
   activated (){
-    ;(function ergodicChildren(instance){
+    ;(function throughChildren(instance){
       instance.$children.forEach(val =>{
         if(/-scrollView$/.test(val.$vnode.tag)){
           if(val.$store.state.saveScroll.scrolls[val._uid]){
@@ -9,7 +9,7 @@ export default {
           }
         }
 
-        val.$children.length && ergodicChildren(val)
+        val.$children.length && throughChildren(val)
       })
     })(this)
   },
@@ -17,7 +17,7 @@ export default {
   // 离开时保存
   beforeRouteLeave (to, from, next){
     var children = {}
-    ;(function ergodicChildren(instance){
+    ;(function throughChildren(instance){
       instance.$children.forEach(val =>{
         if(/-scrollView$/.test(val.$vnode.tag)){
           children[val._uid] = {
@@ -26,7 +26,7 @@ export default {
           }
         }
 
-        val.$children.length && ergodicChildren(val)
+        val.$children.length && throughChildren(val)
       })
     })(this)
 

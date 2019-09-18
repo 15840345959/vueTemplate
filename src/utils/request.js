@@ -1,6 +1,7 @@
 // 请求器实例，挂载于window._request
 import axios from 'axios'
 import qs from 'qs'
+import { prodApi } from '../../my-config'
 
 var config = {
   timeout: 7000,
@@ -12,7 +13,7 @@ var config = {
 }
 
 var axiosInstance = axios.create({
-  baseURL: _GLOBAL.api,
+  baseURL: process.env.NODE_ENV === 'production' ? prodApi : '/api',
   ...config
 })
 
@@ -31,5 +32,4 @@ function responseDataHandler(res){
   return res.data
 }
 
-
-window._request = axiosInstance
+export default axiosInstance

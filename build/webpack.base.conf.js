@@ -4,10 +4,15 @@ const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 const vuxLoader = require('vux-loader')
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+
+const {pathAlias} = require('../my-config')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
+}
+
+for(let key in pathAlias){
+  pathAlias[key] = resolve(pathAlias[key])
 }
 
 let webpackConfig = {
@@ -27,11 +32,7 @@ let webpackConfig = {
     alias: {
       // 路径别名
       'vue$': 'vue/dist/vue.esm.js',
-      '@': resolve('src'),
-      '@c': resolve('src/components'),
-      '@v': resolve('src/views'),
-      '@u': resolve('src/utils'),
-      '@img': resolve('src/assets/images')
+      ...pathAlias
     }
   },
   module: {

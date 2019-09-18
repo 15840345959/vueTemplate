@@ -1,34 +1,13 @@
+import request from '@u/request.js'
+import { apiList, netWorkErrorMsg } from '../api.js'
+
 var requests = {}
 
-// 声明三个方法，方便统一管理文字或其他配置
-
-// 基本，只设置name和url，第三个参数可以传入一个对象，传入配置
-var plain = (name, url, config) => ({ name, url, ...config })
-
-// 载入数据
-var load = (name, url, apiParams) => ({ name, url, apiParams, loading: '加载中', msg: true })
-
-// 提交数据
-var submit = (name, url, apiParams) => ({ name, url, apiParams, method: 'post', loading: '提交中', msg: true })
-
-
-var config = [
-  // { name: 'getIndexData', url: 'index/home' },
-
-  // 这句和上面注释的那一句是等价的
-  plain('getIndexData', 'index/home'),
-
-  load('getCarouselImgs', 'ad/getListByCon'),
-
-  submit('publishUsedCar', 'usedCar/publish'),
-  
-]
-
-config.forEach(add)
+apiList.forEach(add)
 
 // 检查是否有重复命名的api方法
 if(process.env.NODE_ENV === 'development'){
-  var methodNames = config.map(val => val.name)
+  var methodNames = apiList.map(val => val.name)
 
   while(methodNames.length){
     var name = methodNames.pop()
@@ -38,9 +17,9 @@ if(process.env.NODE_ENV === 'development'){
 
 
 /**
- * 添加api方法，方便统一管理，挂载于window._api
+ * 添加api方法，方便统一管理，挂载于window._api  ** 一般不需要直接使用该函数 **
  * @author 张振东
- * @param {object} options 配置对象，以下为配置对象的各字段。 ** 一般不需要直接使用该函数 **
+ * @param {object} options 配置对象，以下为配置对象的各字段。
  * name       {string} 调用该接口的方法名
  * url        {string} 接口路径，不包括base路径
  * method     {string} 方式，get or post，默认get
@@ -69,7 +48,7 @@ function add({
       loading && _alert && _alert.loading.show(loading)
       params = { ...apiParams, ...params }
       
-      _request({
+      request({
         url, method,
         ...({ [method === 'get' ? 'params' : 'data']: params }),
       }).finally(() => {
@@ -87,23 +66,12 @@ function add({
         }
       }).catch(e =>{
         console.log(e)
-        msg && _alert && _alert.toast('网络错误', 'cancel')
+        msg && _alert && _alert.toast(netWorkErrorMsg, 'cancel')
         reject()
       })
     })
   }
 }
-
-
-/**
- * 发送请求
- * @author 张振东
- * @param {object} params  接口参数
- * @param {object} options 可选，接口配置，用来在使用时覆盖设置loading和msg，参见上方add函数的说明
- * @return {promise} 成功时(result == true)：resolve，返回ret字段
- *                   失败时(result == false)：reject，返回整个请求主体
- *                   超时时：reject，无返回
- */
 
 window._api = requests
 

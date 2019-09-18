@@ -1,4 +1,5 @@
 import * as qiniu from 'qiniu-js'
+import { qiniuSpace } from '../../my-config'
 
 /**
  * 上传图片至七牛
@@ -14,7 +15,7 @@ export default function(file){
       var key = 'image/' + new Date().getTime() + file.name 
       var obs = qiniu.upload(file, key, token)
       var cb = {
-        complete: ({key}) => resolve(_GLOBAL.qiniuPic + key),
+        complete: ({key}) => resolve(qiniuSpace + key),
         error: reject
       }
       obs.subscribe(cb)
