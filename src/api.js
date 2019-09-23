@@ -16,16 +16,16 @@ const apiList = [
   get('getIndexData', 'index/home'),
 
   // 调用该接口时，将显示loading，并在返回的result字段为false或调用接口失败时，提示对应信息
-  get('getIndexData', 'index/home', { loading: true, msg: true }),
+  get('getIndexData2', 'index/home', { loading: true, msg: true }),
 
   // 调用该接口时，将显示loading并在下方显示文字“加载中”，并在result为false时，显示“加载首页信息失败”的提示
-  post('getIndexData', 'index/home', { loading: '加载中', msg: '加载首页信息失败' }),
+  post('getIndexData3', 'index/home', { loading: '加载中', msg: '加载首页信息失败' }),
 
   // 这会将接口返回的result字段作为数据传回，用于将result用作判断状态的情况（例如使用result字段判断收藏状态等）
-  get('getIndexData', 'index/home', { resultMode: true }),
+  get('getIndexData4', 'index/home', { resultMode: true }),
 
   // 为接口设置一个默认的参数
-  get('getIndexData', 'index/home', { resultMode: true, apiParams: { level: 1 } })
+  get('getIndexData5', 'index/home', { resultMode: true, apiParams: { level: 1 } })
 ]
 
 export { netWorkErrorMsg, apiList }
