@@ -67,7 +67,7 @@
 
 ## 关于目录安排
 
-引用组件、共用样式、工具函数等一律使用别名，以绝对路径引用。以下是默认的别名列表：
+引用组件、共用样式、工具函数等一律使用别名，以绝对路径引用。以下是默认的别名列表(在my-config.js中配置)：
 
 * @: src
 * @c: src/components
@@ -100,6 +100,24 @@ login
   > Register.vue
 ```
 
-# 其他
+# 配置编辑器的别名跳转
 
-推荐不要省略文件名后缀，这样可以保证jsconfig.json的正常工作(路径别名跳转等)
+编辑器在项目配置了路径别名后，会导致快捷跳转失效，以下是解决方法。
+
+推荐在引用文件时不要省略文件名后缀，这样可以保证jsconfig.json在VS Code的正常工作(路径别名跳转等)
+
+在my-config.js修改或添加别名后，请同时修改jsconfig.json和webstorm.alias.js两个文件，以确保在VsCode和WebStorm上快捷跳转的工作。
+
+## VS Code
+
+维护jsconfig.json文件。
+
+VS Code刚打开项目时读取配置会有些慢，可能需要一小会时间后才会有路径别名的跳转。
+
+## WebStorm
+
+维护webstorm.alias.js文件。
+
+需要在webStorm中设置项目的配置文件，选择webstorm.alias.js。具体操作：
+
+按下ctrl + alt + s 会打开设置，再搜索“Webpack”，在右侧会有个选择文件的输入框，点击输入框的右侧按钮，会弹出选择文件的菜单，选择本项目中的webstorm.alias.js文件，在右下角点击“OK”即可。
