@@ -28,7 +28,8 @@ var routes = [
     component: Index,
     meta: { keepAlive },
   }, {
-    
+    ...p('my'),     // 这个就相当于同时设置 path: '/my', name: 'my'
+    component: () => import('@v/my/Index')      // 路由懒加载
   }
 ]
 
