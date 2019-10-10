@@ -20,6 +20,8 @@ var axiosInstance = axios.create({
 axiosInstance.interceptors.request.use(requestDataHandler)
 axiosInstance.interceptors.response.use(responseDataHandler)
 
+// 拦截器的写法请参考 @see https://www.kancloud.cn/yunye/axios/234845#_395
+
 // 请求拦截器
 function requestDataHandler(req){
 

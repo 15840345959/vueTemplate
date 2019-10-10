@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import img from '@c/ScrollView.vue'
+
 export default {
 
   data (){

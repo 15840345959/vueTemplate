@@ -27,7 +27,9 @@ var routes = [
     name: 'index',
     component: Index,
     meta: { keepAlive },
-  },
+  }, {
+    
+  }
 ]
 
 // guard为路由实例添加全局守卫
