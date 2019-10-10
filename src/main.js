@@ -9,7 +9,6 @@ import FastClick from 'fastclick'
 import App from './App'
 import router from './router'
 import store from './store'
-import beforeInit from './config/beforeInit'
 import beforeCreate from './config/beforeCreate'
 import created from './config/created'
 import themeColors from './styles/global.less'
@@ -40,8 +39,8 @@ FastClick.attach(document.getElementById('app'))
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
-beforeInit(() => new Vue({
+new Vue({
   router, store,
   beforeCreate, created,
   render: h => h(App)
-}).$mount('#app'))
+}).$mount('#app')
